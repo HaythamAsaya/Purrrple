@@ -1,0 +1,404 @@
+ <!--
+
+         ^
+        / \
+       /   \
+      /_____\
+     /       \
+    /    _____\ 
+
+=========================
+Purrrple by Haytham Asaya
+=========================
+
+-->
+
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purrrple</title><link rel="icon" type="image/x-icon" href="icon.png">
+</head><body>
+<!-- style -->
+    <style>
+        :root{--main-color:#c7b188;--main-color2:#9e005d;}
+        ::selection {background-color: transparent;}
+            a:link,a:visited,a:active,a:hover{color: var(--main-color2);text-decoration: none;}
+            *,*::before,*::after{box-sizing: border-box;}
+            * {scrollbar-width: thick;scrollbar-color: var(--main-color);transition:all 2s cubic-bezier(0.44, -0.01, 0, 1.03);}
+            *::-webkit-scrollbar {width: 0px;}
+            *::-webkit-scrollbar-track {background: var(--main-color);}
+            .menu > summary, .reset {list-style: none} 
+            .menu > summary::-webkit-details-marker, .reset ::-webkit-details-marker {display: none; }
+        body{background-color:var(--main-color); color:var(--main-color2); margin: 0; 
+            box-sizing:border-box; font-family:Arial, Helvetica, sans-serif;overflow:hidden;font-stretch: condensed;}
+            .main {height:100vh;height:100dvh; max-height: 100%; padding:60px; display:grid; grid-template-columns:2fr 1fr;grid-template-rows: 1fr 2fr 3fr;
+            grid-template-areas: "navbar navbar""container bars""container cat";gap:3em;overflow:hidden}
+           
+
+            /* header */
+        .container{width:100%;margin:0 auto;position: relative}
+        .profile{position:absolute; top: 30px; left:30px;z-index: 2;color: var(--main-color2);}
+        a:active, a:visited, a:hover {text-decoration: none;color:var(--main-color2)}
+        .username{font-weight: bold;margin: 0;font-size: clamp(1.2em, 4vw, 32px); 
+            display: inline-block;}
+            .lv-coin{font-size: clamp(0.9em, 2vw, 1.2em); position: relative;width: fit-content;}
+        .lv-plus{font-size: 3em; position: absolute;margin: 0;animation: cloud 500ms alternate-reverse ease-in-out infinite;opacity: 0;transition:all 500ms;line-height: 0.5;font-style: normal; top: -10px; right:-100%}
+        .wallet-plus{font-size: 2em; position: absolute;margin: 0;animation: cloud 600ms alternate ease-in-out infinite;opacity: 0;transition:all 500ms;line-height: 0.5;font-style: normal;top: 10px; right:-70%}
+        #cat-emoji{animation: cloud 2s alternate ease-in-out infinite;position: absolute;
+    left: 10%;top: 3%;font-size: 2em;text-shadow: 0px 0px 10px var(--main-color2);} 
+    #cat-crown{position: absolute;right: 10%;top: 3%;font-size: 2.5em;text-shadow: 0px 0px 10px var(--main-color2);} 
+        .logo{width:50px;height:50px;background-color:#9e005d; margin: 0 auto 0; position:relative;top:-30px}
+        
+        .cloud-one{position:absolute; width: 60px;top:18px; left:-20px; 
+            animation: cloud 7s alternate ease-in-out infinite;}
+        .cloud-two{position:absolute; width:40px; top:5px; right:-20px; 
+            animation: cloud 5s alternate-reverse 1s ease-in-out infinite;}
+        @keyframes cloud {
+            0% {transform:translate(0px, 0px);}
+            30% {transform:translate(-3px, -1px);transform:scale(0.9)}
+            70% {transform:translate(3px, 1px)}
+            100%{transform:translate(0px, 0px);transform:scale(1)}}
+        .menu{position:absolute;right:0;width:80px;min-width: fit-content;top:0; display: inline;text-align: right;transition: all 500ms;z-index: 3;overflow: auto;max-height: 90vh;}
+        details[open].menu { border: 1px solid var(--main-color2); border-top:none;border-right: none; text-align: center; padding: 0 0 2em;max-width: min-content;background-color: var(--main-color);}
+        .menu summary {margin: 0 0 0 auto;}
+        .menu-icon {max-width:30px; cursor:pointer;text-align: right; margin:40px 40px 0 auto;}
+        .console-button{width:fit-content;color:var(--main-color);font-weight: 800;padding:.1em 2em;text-align: center;font-size: clamp(12px, 4vw, 1em);line-height: 0;position:relative;display: inline-block;}
+        #con-butt{
+        width: 100%;height: 100%;position:absolute;top:0;left: 0;z-index: -1;
+        }
+        .console-container{position: relative;}
+        .console{height:100vh;max-height: 50vh;background-color: var(--main-color2);color: var(--main-color);padding-inline:15px;border-top:15px solid var(--main-color2);border-bottom:15px solid var(--main-color2);overflow-y:scroll;word-wrap: break-word;font-family: 'Courier New', monospace;font-size: clamp(12px, 4vw, 1em);font-weight: bold;word-break: break-word;}
+        .console-behind{
+            content:'';
+            background: linear-gradient(-45deg,#f1c40f,#e67e22,#e74c3c,#3498db,#2ecc71);
+            height:90%;position: absolute;top:0;left:0;filter: blur(25px);scale:1.01;
+            width: 100%;z-index: -2;animation:glow .8s ease infinite;opacity: 0;transition: opacity .2s ease-out;background-size: 400% 400%;
+        }
+        .form{margin: 15px 0}
+        .form input[type=text] {width: 65%;display: inline;margin: 0; border: 0;background-color: transparent;padding-bottom: .5em; color: var(--main-color2);font-size: clamp(12px, 4vw, 1.2em);}
+        .form input[type=text]:focus {outline: none;}
+        .form input[type=text]::placeholder{color: var(--main-color2);}
+        .form input[type=submit] {width: 25%;display: inline;margin:0;float:right; border-radius: 0; background-color: var(--main-color2); border: none;padding: .5em; transform: translate(-9px,-9px); color: var(--main-color); transition: all 100ms;font-weight: bold;}
+
+        @keyframes slap {
+            to {transform: translate(0,0)}}
+        @keyframes glow {
+            100%{    background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100%{    background-position: 0% 50%;}}
+
+            .bar-box{height:1em;width:100%;border:2px solid;padding:3px;border-radius:50px}
+            .bar1box{display: flex;flex-direction: row;width: 90%;margin: .5em auto 0;
+    align-items: center;justify-content: space-between;}
+            .bar{height: 100%;background:var(--main-color2);border-radius:50px}
+            .bar1,.bar2,.bar3,.bar4{width: 1%;}
+            .bar-text{margin:0 0 .5em;color:var(--main-color2);font-weight: 800;font-size: clamp(10px, 1vw, 1em);}
+            .icon{width:30px;}
+            .icon2{width:40px;}
+            .icon3{width:15px;}
+            .icon4{width:20px;}
+            .cat{padding: 0 0 0 1em;overflow: hidden;animation: in 1s normal forwards ease-in-out;} #right_eye .cat-1,#left_eye .cat-1 {stroke:var(--main-color); stroke-width:20px}
+
+            @keyframes in {
+                0% {transform: translate(20%,100%);}
+                50% {transform: translate(20%,100%);}
+            }
+
+            .container,.cat {display: grid;align-content:center; align-items: end;}
+            .bars{display: grid;align-content:stretch}
+            .help-help{text-align: right; margin:0;font-size: clamp(.2em, 3vw, .9em);position:absolute;right: 0;top:0;}
+
+            @media (orientation: portrait) {
+                .main {grid-template-columns:4fr 6fr;grid-template-rows: 1fr 4fr 3fr;
+            grid-template-areas: "navbar navbar""container container""bars cat";gap:0em;padding: 30px;}
+            .console{height:600px;max-height: 25vh;width:100vw;margin-left:-30px}
+            .console-behind{height:600px;max-height: 20vh;}
+            .icon{width:25px;}
+            .icon2{width:35px;}
+            .icon3{width:10px;}
+            .icon4{width:15px;}
+        .logo {top:0}
+            }
+            .help-help{right:30px}
+
+    </style>
+
+<!-- html -->
+<main class="main" id="main"> 
+    <div class="navbar" style="grid-area:navbar">
+    <details class="menu"><details style="padding:2em 4em 2em;margin:0 auto;width:100%;max-width: 400px;"><summary class="reset" style="padding:.5em; cursor: pointer"><strong>↺ Reset Purrrple</strong><br><span style="font-size:small;">Your data and progress will be deleted!</span></summary>Are you sure?<br><a style="cursor:pointer" onclick="localStorage.clear();window.location.reload(true);"><p style="padding: 0.5em 1em;background: var(--main-color2);color: var(--main-color);width: fit-content;
+        margin: 1em auto;">YES</p></a></details><details style="padding:0 4em 2em;margin:0 auto;width:100%;max-width: 400px;"><summary style="padding:.5em; cursor: pointer"><strong>How to play ?</strong></summary><ul style="text-align: left;padding:0"><li>Purrrple is a virtual pet. You will be interacting with the game through commands in the console. Your keyboard is your way to get things done.</li><li>The game is connected to your browser and saves your progress automatically. Your mission is taking care of Purrrple to gain points and get as many purrrs as you can!</li><li>Your level indicator is on the top left corner of the screen underneath your username.</li><li>Your wallet is underneath your level indicator. You earn coins with each keypress.</li></ul><i>Last but not least, you can customize the layout with your favorite colors. Don't neglect Purrrple. Good Luck!</i></details>Developed by: <br> <a href="mailto:haytham.asaya@gmail.com"> Haytham.asaya@gmail.com</a></p>
+        
+        <p style="font-size:X-small;">BETA V 1.0.0</p><summary> <div class="menu-icon"><svg viewBox="0 0 61 41" preserveAspectRatio="none"><style type="text/css">
+	.st0{fill:none;stroke:var(--main-color2);stroke-width:5;stroke-miterlimit:10;}</style><g>
+	<line class="st0" x1="0" y1="2.5" x2="61" y2="2.5"/>
+	<line class="st0" x1="0" y1="20.5" x2="61" y2="20.5"/>
+	<line class="st0" x1="0" y1="38.5" x2="61" y2="38.5"/></g></svg></div></summary></details>
+    <div class="profile"><p class="username">Username</p><div class="lv-coin"><i><p style="margin:0; position: relative">LV. <span class="level">0</span><span class="lv-plus">+</span></p></i><i><p style="margin:0; position: relative">$ <span class="wallet">0</span><span class="wallet-plus">$</span></p></i></div></div><a style="cursor:pointer" onclick="localStorage['bg_color'] = '#c7b188';localStorage['color'] = '#9e005d';window.location.reload(true);"> <div class="logo"><div class="cloud-one"><svg viewBox="0 0 129.7 57.8">
+    <style type="text/css">.st{fill:#FFFFFF;}</style><path class="st" d="M129.7,57.8c0-1.9-0.1-3.8-0.1-5.7c0-4.5-2-8.1-5.2-11.1c-2.7-2.5-5.7-4.2-9.4-4.4c-3.3-0.2-6.6-0.3-9.9-0.4
+        c-1.6-0.1-3.3,0-5,0c0-1.3,0-2.3,0-3.4c-0.1-2.8-0.3-5.5-1.6-8.1c-1.8-3.7-4.3-6.5-8.6-7.1c-2.6-0.4-5.1-0.1-7.6,0.7 c-2.5,0.8-4.4,2.4-6.6,3.8c-0.3,0.2-0.6,0.4-1,0.6c-0.3-0.8-0.6-1.4-0.8-2c-1.3-3.3-2.6-6.6-4.8-9.5c-8-10.7-21.8-14.2-33.9-8.7 c-10.3,4.7-16.8,15.6-16,26.3c0.2,2.4,0.5,4.7,0.8,7.2c-1.9,0.2-3.7,0.3-5.5,0.7c-7,1.4-11.8,5.5-13.8,12.4C0,52-0.1,54.9,0.1,57.8 H129.7z"/></svg></div>
+        <div class="cloud-two"><svg viewBox="0 0 129.7 57.8"><style type="text/css"></style><path class="st" d="M129.7,57.8c0-1.9-0.1-3.8-0.1-5.7c0-4.5-2-8.1-5.2-11.1c-2.7-2.5-5.7-4.2-9.4-4.4c-3.3-0.2-6.6-0.3-9.9-0.4 c-1.6-0.1-3.3,0-5,0c0-1.3,0-2.3,0-3.4c-0.1-2.8-0.3-5.5-1.6-8.1c-1.8-3.7-4.3-6.5-8.6-7.1c-2.6-0.4-5.1-0.1-7.6,0.7c-2.5,0.8-4.4,2.4-6.6,3.8c-0.3,0.2-0.6,0.4-1,0.6c-0.3-0.8-0.6-1.4-0.8-2c-1.3-3.3-2.6-6.6-4.8-9.5c-8-10.7-21.8-14.2-33.9-8.7 c-10.3,4.7-16.8,15.6-16,26.3c0.2,2.4,0.5,4.7,0.8,7.2c-1.9,0.2-3.7,0.3-5.5,0.7c-7,1.4-11.8,5.5-13.8,12.4C0,52-0.1,54.9,0.1,57.8 H129.7z"/></svg></div></a></div>
+        </div>
+
+        <div class="container" style="grid-area:container"> 
+            <div class="console-header" style="position: relative">
+    <div class="console-button"><p>Console</p>
+    <svg id="con-butt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.02 90" preserveAspectRatio="none"><defs><style>.con-butt{fill:var(--main-color2);}</style></defs><polygon class="con-butt" points="461.02 90 405.92 0 55.1 0 0 90 461.02 90"/></svg></div><p class="help-help">Type "help" for commands list ↵</p></div><div class="console-container"><div class="console"></div>
+        <div class="console-behind"></div></div>
+    <form action="" class="form" onsubmit="slap()" method="post">
+        <input type="text" name="input" id="input" placeholder="Type here ..." autocomplete="off" spellcheck="false" autofocus>
+        <input type="submit" name="enter" id="enter" value="ENTER"></form></div>
+       
+        <div class="bars" style="grid-area:bars">
+        <div class="bar1box">
+            <p class="bar-text">FOOD</p>
+            <div class="icon"><svg viewBox="0 0 57.24 26.42"><defs><style>.fp{fill:var(--main-color2);}</style></defs><path class="fp" d="M1.37,4C.48,6.92,0,10.01,0,13.21s.45,6.06,1.27,8.88c1.03-3.27,2.58-6.3,4.55-9.02C3.89,10.34,2.36,7.29,1.37,4Z"/><path class="fp" d="M31.43,0C20.9,0,11.57,5.15,5.83,13.07c5.73,8.07,15.15,13.35,25.8,13.35s19.86-5.15,25.61-13.07C51.5,5.27,42.09,0,31.43,0Z"/></svg></div>
+        </div>
+            <div class="bar-box">
+                <div class="bar bar1"></div>
+    </div>
+    <div class="bar1box">
+        <p class="bar-text">WATER</p>
+        <div class="icon2"><svg viewBox="0 0 70.99 27"><defs></defs><path class="fp" d="M0,4.27V.07c2.13-.04,4.06,.5,5.83,1.59,.67,.41,1.3,.89,1.97,1.31,2.66,1.66,5.32,1.61,8,0,1.41-.85,2.8-1.84,4.34-2.35,3.36-1.12,6.64-.71,9.67,1.22,.56,.36,1.09,.76,1.65,1.11,2.68,1.68,5.37,1.68,8.06,0,.35-.22,.68-.46,1.01-.69,4.46-3.03,9.32-3.01,13.76,.11,1.45,1.02,2.94,1.8,4.77,1.8,1.67,0,3.15-.47,4.5-1.45,1.55-1.13,3.18-2.13,5.13-2.44,.73-.12,1.46-.18,2.27-.27V4.32c-2.09-.13-3.66,1-5.28,2.08-4.13,2.77-9.01,2.73-13.12-.09-1.57-1.08-3.14-2.05-5.17-2.01-1.53,.03-2.91,.39-4.16,1.28-1.67,1.18-3.38,2.28-5.46,2.63-3.01,.5-5.84,.11-8.43-1.57-.45-.29-.89-.6-1.33-.9-2.9-1.97-5.88-1.97-8.76,.03-1.52,1.05-3.06,2.03-4.91,2.39-3.49,.68-6.68,.05-9.56-2.08-1.07-.79-2.19-1.5-3.56-1.68-.38-.05-.76-.08-1.23-.13Z"/><path class="fp" d="M0,13.47v-4.18c.9,.11,1.78,.17,2.63,.33,1.77,.34,3.28,1.25,4.7,2.31,2.13,1.59,4.48,1.92,6.95,1.08,.92-.31,1.75-.92,2.56-1.49,3.31-2.32,6.91-2.81,10.69-1.52,1.23,.42,2.41,1.13,3.45,1.92,2.6,1.98,6.45,2.03,9.1-.06,3.04-2.4,6.49-3.05,10.24-2.18,1.67,.39,3.11,1.28,4.46,2.29,1.91,1.43,4.05,1.82,6.3,1.21,1-.27,1.96-.86,2.83-1.45,1.93-1.33,3.97-2.29,6.35-2.37,.18,0,.36,0,.54,0,.05,0,.09,.03,.19,.06v4.08c-.12,.04-.21,.09-.31,.09-1.69,0-3.09,.75-4.41,1.71-1.5,1.09-3.11,1.93-4.98,2.21-3.1,.47-5.99,0-8.6-1.83-.46-.32-.92-.65-1.39-.94-2.68-1.63-5.37-1.64-7.99,.08-1.75,1.15-3.47,2.34-5.61,2.68-3.33,.53-6.37-.09-9.14-2.08-.9-.65-1.89-1.28-2.94-1.57-2.15-.6-4.21-.28-6.13,1-1.31,.87-2.66,1.78-4.13,2.26-3.41,1.11-6.74,.73-9.81-1.26-.24-.15-.46-.32-.7-.46-.76-.46-1.49-1.02-2.3-1.34-.79-.31-1.67-.39-2.55-.58Z"/><path class="fp" d="M0,22.86v-4.23c1.77-.03,3.42,.3,4.95,1.11,.83,.44,1.62,.96,2.4,1.5,2.97,2.03,5.96,2.1,8.88-.02,2.7-1.96,5.62-2.92,8.96-2.51,1.92,.24,3.6,1.01,5.21,2.05,1.06,.68,2.17,1.41,3.36,1.74,2.13,.58,4.19,.19,6.02-1.15,1.38-1.01,2.81-1.95,4.52-2.35,3.33-.78,6.47-.42,9.38,1.5,1.02,.67,2.03,1.44,3.16,1.83,2.25,.77,4.47,.53,6.49-.89,1.46-1.03,2.93-2.07,4.72-2.45,.94-.2,1.9-.3,2.93-.46v4.26c-.07,.02-.16,.08-.26,.08-1.56,.04-2.93,.6-4.16,1.53-2.09,1.57-4.39,2.53-7.05,2.59-2.77,.06-5.21-.79-7.42-2.42-1.01-.75-2.07-1.39-3.35-1.59-2.06-.32-3.95,.01-5.66,1.26-1.55,1.13-3.17,2.14-5.11,2.5-3.14,.58-6.09,.17-8.78-1.64-.55-.37-1.08-.77-1.65-1.11-2.57-1.55-5.16-1.55-7.73-.01-.5,.3-.97,.66-1.46,.98-4.1,2.73-8.98,2.73-13.08,0-.08-.06-.17-.11-.25-.17-1.47-1.12-3.03-1.98-5-1.91Z"/></svg></div>
+    </div>
+        <div class="bar-box">
+            <div class="bar bar2"></div>
+</div>
+<div class="bar1box">
+    <p class="bar-text">HYGIENE</p>
+    <div class="icon3"><svg viewBox="0 0 26.48 28"><defs></defs><path class="fp" d="M13.22,0C12.26,6.99,6.89,12.57,0,13.86c6.98,1.3,12.4,7.02,13.26,14.14,.97-6.99,6.34-12.57,13.22-13.86-6.98-1.3-12.4-7.02-13.26-14.14Z"/></svg></div>
+</div>
+    <div class="bar-box">
+        <div class="bar bar3"></div>
+</div>
+<div class="bar1box">
+    <p class="bar-text">MOOD</p>
+    <div class="icon4"><svg viewBox="0 0 31.9 29.02"><defs></defs><path class="fp" d="M31.89,9.24c.09,3.54-1.42,6.74-4.18,9.32-3.7,3.46-7.52,6.8-11.26,10.21-.42,.38-.64,.27-1-.05-3.46-3.12-6.95-6.21-10.41-9.33C1.85,16.52-.04,13.07,0,8.63,.04,4.89,1.85,1.88,5.1,.59c3.29-1.3,7.07-.4,9.5,2.27,.47,.52,.87,1.46,1.36,1.5,.57,.05,.88-.96,1.35-1.48C19.77,.18,23.57-.73,26.9,.62c3.31,1.34,5.13,4.35,5,8.62Z"/></svg></div>
+</div>
+    <div class="bar-box">
+        <div class="bar bar4"></div>
+</div>
+</div>
+<div class="cat" style="grid-area:cat"><span id="cat-emoji"></span><span id="cat-crown"></span><svg style="max-height:50%;margin:0 auto" id="cat-svg" viewBox="0 0 585.06 497.8"><defs><style>.cat-1{fill:var(--main-color)}.cat-2{fill:var(--main-color2);}.cat-3{fill:none;stroke:var(--main-color2);stroke-miterlimit:10;}.cat-4{fill:var(--main-color2);}</style></defs><g id="Cat"><path id="cat_body" class="cat-4" d="M583.54,497.8s22.12-102.32-102.32-185.29C356.77,229.54,265.5,235.07,257.21,0l-24.89,82.97h-74.67L127.49,0s-21.01,182.53-11.33,257.19c13.27,102.4,77.44,171.46,121.68,215.71,0,0-8.68-2.77-8.68,24.89h354.37Z"/><g id="right_eye"><path id="re_stroke" class="cat-1" d="M237.85,138.39c-11.5,0-20.86-9.36-20.86-20.86s9.36-20.86,20.86-20.86,20.86,9.36,20.86,20.86-9.36,20.86-20.86,20.86Zm0-38.72c-9.85,0-17.86,8.01-17.86,17.86s8.01,17.86,17.86,17.86,17.86-8.01,17.86-17.86-8.01-17.86-17.86-17.86Z"/></g><g id="left_eye"><path id="le_stroke" class="cat-1" d="M149.35,138.39c-11.5,0-20.86-9.36-20.86-20.86s9.36-20.86,20.86-20.86,20.86,9.36,20.86,20.86-9.36,20.86-20.86,20.86Zm0-38.72c-9.85,0-17.86,8.01-17.86,17.86s8.01,17.86,17.86,17.86,17.86-8.01,17.86-17.86-8.01-17.86-17.86-17.86Z"/></g><polygon id="mouth" class="cat-1" points="201.66 114.53 190.83 125.36 180.01 114.53 201.66 114.53"/><line id="_Line6_" class="cat-3" x1="271.03" y1="112" x2="389.95" y2="103.71"/><line id="_Line5_" class="cat-3" x1="271.03" y1="117.54" x2="398.25" y2="112"/><line id="_Line4_" class="cat-3" x1="268.27" y1="125.83" x2="395.48" y2="120.3"/><line id="_Line3_" class="cat-3" x1="118.93" y1="125.83" x2="2.78" y2="131.36"/><line id="_Line2_" class="cat-3" x1="118.93" y1="120.3" x2=".01" y2="123.07"/><line id="_Line1_" class="cat-3" x1="121.7" y1="112" x2="2.78" y2="114.77"/></g></svg></div>
+</main>
+
+<script> 
+    let input = document.querySelector("#input");
+    let enter = document.querySelector("#enter");
+    let form = document.querySelector("form");
+    let pconsole = document.querySelector('.console');
+    let username = document.querySelector('.username');
+    let level = document.querySelector('.level');
+    let wallet = document.querySelector('.wallet');
+    let bar1 = document.querySelector('.bar1');
+    let bar2 = document.querySelector('.bar2');
+    let bar3 = document.querySelector('.bar3');
+    let bar4 = document.querySelector('.bar4');
+    let catSVG = document.querySelector('#cat-svg');
+    let catCrown = document.querySelector('#cat-crown')
+    let regex_math = /^([\d\. ]+[\-\+\/\*][\d\. ]+)+$/;
+    let regex_bg_color = /^(background-color:)/i;
+    let regex_color = /^(color:)/i;
+    let regex_sanitize =  /([<>])+/i;
+    let regex_username =  /^(username:)/i;
+    let regex_help =  /^(help)$/i;
+    let regex_food =  /^(fill-food)$/i;
+    let regex_water =  /^(fill-water)$/i;
+    let regex_hygiene =  /^(clean)$/i;
+    let regex_mood =  /^(play)$/i;
+
+// localstorage
+if(!localStorage['username']) {
+            pconsole.innerHTML += 'Hello! Welcome to Purrrple, your virtual pet 😋 <br><br>Type your username in the field below following this format: <br><br>username: john doe<br>';
+        } else {
+    username.innerHTML = localStorage.getItem('username');
+    let magicAnswers = ['😍 Welcome to Purrrple, ', '😎 Hi ', '😇 Welcome back, '];
+    let randAnswer = Math.floor( Math.random() *3)
+    pconsole.innerHTML += magicAnswers[randAnswer] + localStorage.getItem('username') + ".<br>";
+}
+    if (localStorage['bg_color']){
+        document.documentElement.style.setProperty('--main-color', localStorage.getItem('bg_color'))}
+    if (localStorage['color']){
+        document.documentElement.style.setProperty('--main-color2', localStorage.getItem('color'));}
+    if(!localStorage['start']){
+        localStorage.setItem('start', new Date().getTime())
+        localStorage.setItem('level', 0)
+        localStorage.setItem('score', 0)
+        localStorage.setItem('bar1', (new Date().getTime() - 20000000))
+        localStorage.setItem('bar2', (new Date().getTime() - 20000000))
+        localStorage.setItem('bar3', (new Date().getTime() - 20000000))
+        localStorage.setItem('bar4', (new Date().getTime() - 25000000))
+        localStorage.setItem('money', 0);
+    }
+        const engine = setInterval(leveler
+        ,1000)
+      
+        function leveler(){
+            var time = (new Date().getTime() - localStorage.getItem('start')) / 30000000;
+        localStorage['level'] = time;
+        level.innerHTML = Math.round(Number(localStorage['level']) + Number(localStorage['score'] / 1000));
+        wallet.innerHTML = parseFloat(Number(localStorage['money']) / 1000).toFixed(1);
+        var bar1_minus = (new Date().getTime() - localStorage.getItem('bar1'));
+        var bar1_percentage = (100 - (bar1_minus / 500000));
+        if(bar1_percentage >= 0){
+        bar1.style.width = bar1_percentage + '%';
+    } else {bar1.style.width = '0%'}
+    var bar2_minus = (new Date().getTime() - localStorage.getItem('bar2'));
+        var bar2_percentage = (100 - (bar2_minus / 600000));
+        if(bar2_percentage >= 0){
+        bar2.style.width = bar2_percentage + '%';
+    } else {bar2.style.width = '0%'}
+    var bar3_minus = (new Date().getTime() - localStorage.getItem('bar3'));
+        var bar3_percentage = (100 - (bar3_minus / 900000));
+        if(bar3_percentage >= 0){
+        bar3.style.width = bar3_percentage + '%';
+    } else {bar3.style.width = '0%'}
+    var bar4_minus = (new Date().getTime() - localStorage.getItem('bar4'));
+        var bar4_percentage = (100 - (bar4_minus / 450000));
+        if(bar4_percentage >= 0){
+        bar4.style.width = bar4_percentage + '%';
+    } else {bar4.style.width = '0%'}
+
+    if(bar1_percentage <= 20 || bar2_percentage <= 20 || bar3_percentage <= 20 || bar4_percentage <= 20){emojiSad()}
+    if(level.innerHTML >= 10){catSVG.style.maxHeight = '60%'}
+    if(level.innerHTML >= 30){catSVG.style.maxHeight = '70%'}
+    if(level.innerHTML >= 50){catSVG.style.maxHeight = '80%'}
+    if(level.innerHTML >= 70){catSVG.style.maxHeight = '90%'}
+    if(level.innerHTML >= 80){catSVG.style.maxHeight = '100%'}
+    if(level.innerHTML >= 100){catCrown.innerHTML = '👑'}
+
+}
+const gameover = setInterval( ()=> {
+if(bar1.style.width === '0%' || bar2.style.width === '0%' || bar3.style.width === '0%' || bar4.style.width === '0%'){
+const cat = document.querySelector('.cat')
+pconsole.innerHTML += '<br>GAME OVER!<br>Purrrple felt neglected and escaped! You have reached level: ' + level.innerHTML + '.<br>You can restart the game from the menu to try again!';
+pconsole.scrollTo(0, pconsole.scrollHeight);
+cat.style.opacity = 0;
+clearInterval(gameover);
+clearInterval(engine);
+input.style.display = 'none'; enter.style.display = 'none';
+}}, 1000)
+
+    // animations
+    const glow = document.querySelector(".console-behind");
+    window.addEventListener("input", () => {
+    glow.style.opacity = "1";glow.style.transitionDelay = "0s";
+    localStorage['money'] = Number(localStorage['money']) + 3;plusflash2()})
+    window.addEventListener("keyup", () => {
+    glow.style.opacity = "0";glow.style.transitionDelay = "200ms";})
+
+    const lv_plus = document.querySelector('.lv-plus');
+    const plusflash = ()=>{
+            lv_plus.style.opacity = "1";lv_plus.style.transitionDelay = "0s";
+            setTimeout(()=>{lv_plus.style.opacity = "0";lv_plus.style.transitionDelay = "200ms"}, 500)}
+    
+    const wallet_plus = document.querySelector('.wallet-plus');
+    const plusflash2 = ()=>{
+            wallet_plus.style.opacity = "1";wallet_plus.style.transitionDelay = "0s";
+            setTimeout(()=>{wallet_plus.style.opacity = "0";wallet_plus.style.transitionDelay = "200ms"}, 500)}
+
+                // cat emotions
+                const emojiAction = ()=>{ 
+    let cat_emoji = document.querySelector('#cat-emoji')
+    let catEmoji = ["😀","😁","😇","😋","😊","😍","😎","😻","😺","😸","🤓","🤠","🤩","💗","💝","💖","💓","💕","✨","❤","⭐"];let randEmoji = Math.floor( Math.random() *21);
+        cat_emoji.innerHTML = catEmoji[randEmoji];
+    let catInt = setInterval(()=> { cat_emoji.innerHTML = ''; clearInterval(catInt)}, 2000)
+}
+const emojiSad = ()=>{ 
+    let cat_emoji = document.querySelector('#cat-emoji')
+    let catEmoji = ["👀","🐾","💔","💩","💨","😕","😔","😓","😒","😟","😢","😥","😩","😪","😭","😵","😾","😿","🙀","🙁","🚨"];let randEmoji = Math.floor( Math.random() *21);
+        cat_emoji.innerHTML = catEmoji[randEmoji];
+} 
+
+    // input.addEventListener("keypress", slap)
+    function slap(event) {
+        // If the user presses the "Enter" key on the keyboard
+  if (input.value.trim().length > 0 && !regex_sanitize.test(input.value.trim())) {
+      enter.click();
+      localStorage['score']++;plusflash()
+      
+      pconsole.innerHTML += '<br><span><strong>> </strong></span>' + input.value;
+      if(regex_math.test(input.value.trim())){
+        let calc = eval(input.value.replaceAll(' ',''));
+        pconsole.innerHTML += ' = ' + calc + '<br>' + 'Math is cool.<br>';
+      }else if (regex_bg_color.test(input.value.trim())){
+        let new_bg_color = input.value.replace(regex_bg_color, '');
+        document.documentElement.style.setProperty('--main-color', new_bg_color);
+        pconsole.innerHTML += '<br>Background color updated.<br>';
+        localStorage.setItem('bg_color', new_bg_color);
+      }else if (regex_color.test(input.value.trim())){
+        let new_color = input.value.replace(regex_color, '');
+        document.documentElement.style.setProperty('--main-color2', new_color);
+        pconsole.innerHTML += '<br>Theme color updated.<br>';
+        localStorage.setItem('color', new_color);
+      }else if (regex_food.test(input.value.trim())){
+        if(localStorage['money'] >= 2000){emojiAction();
+          localStorage['bar1'] = new Date().getTime();
+          localStorage['money'] = localStorage['money'] - 2000;
+        pconsole.innerHTML += '<br>Food bowl has been filled.<br>';} 
+        else {pconsole.innerHTML += '<br>Not enough money. You need 2 coins. You can collect coins by typing with your keyboard into the console.<br>';}
+      }else if (regex_water.test(input.value.trim())){
+        if(localStorage['money'] >= 1000){emojiAction();
+          localStorage['bar2'] = new Date().getTime();
+          localStorage['money'] = localStorage['money'] - 1000;
+        pconsole.innerHTML += '<br>Water bowl has been filled.<br>';}
+        else {pconsole.innerHTML += '<br>Not enough money. You need 1 coin. You can collect coins by typing with your keyboard into the console.<br>';}
+      }else if (regex_hygiene.test(input.value.trim())){
+        if(localStorage['money'] >= 1000){emojiAction();
+          localStorage['bar3'] = new Date().getTime();
+          localStorage['money'] = localStorage['money'] - 1000;
+        pconsole.innerHTML += '<br>Litter box has been cleaned.<br>';}
+        else {pconsole.innerHTML += '<br>Not enough money. You need 1 coin. You can collect coins by typing with your keyboard into the console.<br>';}
+      }else if (regex_mood.test(input.value.trim())){
+        if(localStorage['money'] >= 1000){emojiAction();
+          localStorage['bar4'] = new Date().getTime();
+          localStorage['money'] = localStorage['money'] - 1000;
+        pconsole.innerHTML += '<br>Purrr.<br>';}
+        else {pconsole.innerHTML += '<br>Not enough money. You need 1 coin. You can collect coins by typing with your keyboard into the console.<br>';}
+      }else if (regex_help.test(input.value.trim())){
+        pconsole.innerHTML += '<br>- <i>BACKGROUND-COLOR:</i><br>Use this command followed by a color name or value to change the background color.<br>' + 
+        '- <i>COLOR:</i><br>Use this command followed by a color name or value to change the foreground color.<br>'+
+        '- <i>5 + 5</i><br>You can do simple math using these operators [ + , - , * , / ].<br>'+
+        '- <i>USERNAME:</i><br>Use this command followed by your name.<br>'+
+        '- <i>FILL-FOOD</i><br>Use this command to fill Purrrple\'s food bowl. Food costs 2 coins.<br>'+
+        '- <i>FILL-WATER</i><br>Use this command to fill Purrrple\'s water bowl. Water costs 1 coin.<br>'+
+        '- <i>CLEAN</i><br>Use this command to empty Purrrple\'s litter box. Cleaning costs 1 coin.<br>'+
+        '- <i>PLAY</i><br>Use this command to pet and play with Purrrple. Playing costs 1 coin.<br>'+
+        '- <i>CLEAR</i><br>Use this command to clear the console.<br>' +
+        '<br>P.s. If you experiment with colors and break the layout, you can always press the clouds on the top of the page to refresh the layout.<br>';
+      } else if (regex_username.test(input.value.trim())){
+        let new_username = input.value.replace(regex_username, '');
+        if(new_username.trim().length > 10){
+            pconsole.innerHTML += '<br>Please enter a username of 10 or less characters.<br>'
+        }else if(new_username.trim().length > 0){
+        username.innerHTML = new_username;
+        pconsole.innerHTML += '<br>Username updated.<br>';
+        if(!localStorage['username']){
+        pconsole.innerHTML += '<br>Hello, ' + new_username + '!<br>Cool name! Our second command would be HELP, type "help" and press Enter to learn the rest of the commands 😎<br>';
+        }
+        localStorage.setItem('username', new_username);
+      }}else if (input.value.trim().toLowerCase() === "reset" || input.value.trim().toLowerCase() === "clear" || input.value.trim().toLowerCase() === "restart"){
+        let cleanAnswers = ["Fresh!","Clean console!","Clear as the sky ...","Voila!","All's gone!"]; let randAnswer = Math.floor(Math.random()*5)
+        pconsole.innerHTML = cleanAnswers[randAnswer] + '<br>';
+      } else {let magicAnswers = ["Yes!","Make money!","Better not stop.","Cashing.","Almost there.","Don’t give up.","It is certain.","It is decidedly so.","Most likely.","More!","My sources say Meaw.","Outlook good.","Money!","Try again.","Signs point to yes.","Very much.","Without a doubt.","Click! Click!","Yes, definitely.","You may rely on it.","From my point of view, mew.","Try again.","Better keep it up.","Cannot stop.","Focus and try again.","Yeah.","Absolutely.","Of course.","Meaw!","My sources say yes.","CLICK!!!","Let\'s go!","Click! Click! Click!","No stopping us.","By all means.","I am happy.","Definitely.","Yeah!","Hell, yes!","It has a ring to it, so yes."];let randAnswer = Math.floor( Math.random() *40)
+    pconsole.innerHTML += '<br>- ' + magicAnswers[randAnswer] + '<br>';}
+
+
+
+      
+    // scroll down console and clear input field
+    pconsole.scrollTo(0, pconsole.scrollHeight);
+    form.reset();enter.style.animation = "slap 100ms alternate";
+    setTimeout(function(){enter.style.animation = ""},100)}};
+    form.addEventListener("submit", function(e){event.preventDefault();})
+
+// close details tag if click outside
+var details = [...document.querySelectorAll('details')];
+document.addEventListener('click', function(e) {
+  if (!details.some(f => f.contains(e.target))) {
+    details.forEach(f => f.removeAttribute('open'));
+  } else {details.forEach(f => !f.contains(e.target) ? f.removeAttribute('open') : '')}})
+
+</script>
+</body>
+</html>
